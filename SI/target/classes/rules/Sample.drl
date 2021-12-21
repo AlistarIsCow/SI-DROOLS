@@ -1,0 +1,740 @@
+package com.sample
+
+import org.kie.api.runtime.KieRuntime;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import java.awt.*;
+import java.awt.event.*;
+
+global JFrame frame
+
+rule "Are you in Japan?"
+    when
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you in Japan?", options);
+    insert (answer);
+end
+
+rule "Are you in Japan? - Yes - Turnip."
+    when
+    Question_and_answer(question == "Are you in Japan?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Turnip.");
+end
+
+
+rule "Are you in Japan? - No - Do you miss meat?"
+    when
+    Question_and_answer(question == "Are you in Japan?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you miss meat?", options);
+    insert (answer);
+end
+
+rule "Do you miss meat? - Yes - Portobello mushroom, eggplant."
+    when
+    Question_and_answer(question == "Do you miss meat?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Portobello mushroom, eggplant.");
+end
+
+
+rule "Do you miss meat? - No - Is it summer?"
+    when
+    Question_and_answer(question == "Do you miss meat?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is it summer?", options);
+    insert (answer);
+end
+
+rule "Is it summer? - Yes - Melon, honeydew, watermelon."
+    when
+    Question_and_answer(question == "Is it summer?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Melon, honeydew, watermelon.");
+end
+
+
+rule "Is it summer? - No - Is it Thanksgiving?"
+    when
+    Question_and_answer(question == "Is it summer?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is it Thanksgiving?", options);
+    insert (answer);
+end
+
+rule "Is it Thanksgiving? - Yes - Sweet potato, cranberry."
+    when
+    Question_and_answer(question == "Is it Thanksgiving?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Sweet potato, cranberry.");
+end
+
+
+rule "Is it Thanksgiving? - No - Do you mind your pee smelling of sulfur?"
+    when
+    Question_and_answer(question == "Is it Thanksgiving?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("No");
+    options.add("Yes");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you mind your pee smelling of sulfur?", options);
+    insert (answer);
+end
+
+rule "Do you mind your pee smelling of sulfur? - No - Asparagus."
+    when
+    Question_and_answer(question == "Do you mind your pee smelling of sulfur?" && answer == "No")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Asparagus.");
+end
+
+
+rule "Do you mind your pee smelling of sulfur? - Yes - Is it Halloween?"
+    when
+    Question_and_answer(question == "Do you mind your pee smelling of sulfur?" && answer == "Yes")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is it Halloween?", options);
+    insert (answer);
+end
+
+rule "Is it Halloween? - Yes - Gourd, pumpkin."
+    when
+    Question_and_answer(question == "Is it Halloween?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Gourd, pumpkin.");
+end
+
+
+rule "Is it Halloween? - No - Do you have poor eyesight?"
+    when
+    Question_and_answer(question == "Is it Halloween?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you have poor eyesight?", options);
+    insert (answer);
+end
+
+rule "Do you have poor eyesight? - Yes - Carrot."
+    when
+    Question_and_answer(question == "Do you have poor eyesight?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Carrot.");
+end
+
+
+rule "Do you have poor eyesight? - No - Are you doing a 'Mexican night'?"
+    when
+    Question_and_answer(question == "Do you have poor eyesight?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you doing a 'Mexican night'?", options);
+    insert (answer);
+end
+
+rule "Are you doing a 'Mexican night'? - Yes - Jalapeno, parsley, paprika, avocado."
+    when
+    Question_and_answer(question == "Are you doing a 'Mexican night'?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Jalapeno, parsley, paprika, avocado.");
+end
+
+
+rule "Are you doing a 'Mexican night'? - No - Are you in the deep South?"
+    when
+    Question_and_answer(question == "Are you doing a 'Mexican night'?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you in the deep South?", options);
+    insert (answer);
+end
+
+rule "Are you in the deep South? - Yes - Okra, cabbage."
+    when
+    Question_and_answer(question == "Are you in the deep South?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Okra, cabbage.");
+end
+
+
+rule "Are you in the deep South? - No - Are you Popeye?"
+    when
+    Question_and_answer(question == "Are you in the deep South?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you Popeye?", options);
+    insert (answer);
+end
+
+rule "Are you Popeye? - Yes - Spinach."
+    when
+    Question_and_answer(question == "Are you Popeye?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Spinach.");
+end
+
+
+rule "Are you Popeye? - No - Is there Corona in your cart?"
+    when
+    Question_and_answer(question == "Are you Popeye?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is there Corona in your cart?", options);
+    insert (answer);
+end
+
+rule "Is there Corona in your cart? - Yes - Lime."
+    when
+    Question_and_answer(question == "Is there Corona in your cart?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Lime.");
+end
+
+
+rule "Is there Corona in your cart? - No - Are you trying to keep the doctor away?"
+    when
+    Question_and_answer(question == "Is there Corona in your cart?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you trying to keep the doctor away?", options);
+    insert (answer);
+end
+
+rule "Are you trying to keep the doctor away? - Yes - Apple."
+    when
+    Question_and_answer(question == "Are you trying to keep the doctor away?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Apple.");
+end
+
+
+rule "Are you trying to keep the doctor away? - No - Will  you blame 'it' on the dog?"
+    when
+    Question_and_answer(question == "Are you trying to keep the doctor away?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Will  you blame 'it' on the dog?", options);
+    insert (answer);
+end
+
+rule "Will  you blame 'it' on the dog? - Yes - White cabbage, radish, cauliflower."
+    when
+    Question_and_answer(question == "Will  you blame 'it' on the dog?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "White cabbage, radish, cauliflower.");
+end
+
+
+rule "Will  you blame 'it' on the dog? - No - Are you a chef?"
+    when
+    Question_and_answer(question == "Will  you blame 'it' on the dog?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you a chef?", options);
+    insert (answer);
+end
+
+rule "Are you a chef? - Yes - Pearl onion, ginger, bay leaf, salvia, dill, rosemary, thyme."
+    when
+    Question_and_answer(question == "Are you a chef?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Pearl onion, ginger, bay leaf, salvia, dill, rosemary, thyme.");
+end
+
+
+rule "Are you a chef? - No - Do you like the taste of dirt?"
+    when
+    Question_and_answer(question == "Are you a chef?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you like the taste of dirt?", options);
+    insert (answer);
+end
+
+rule "Do you like the taste of dirt? - Yes - Beetroots."
+    when
+    Question_and_answer(question == "Do you like the taste of dirt?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Beetroots.");
+end
+
+
+rule "Do you like the taste of dirt? - No - Do you like mayonnaise?"
+    when
+    Question_and_answer(question == "Do you like the taste of dirt?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you like mayonnaise?", options);
+    insert (answer);
+end
+
+rule "Do you like mayonnaise? - Yes - Artichoke."
+    when
+    Question_and_answer(question == "Do you like mayonnaise?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Artichoke.");
+end
+
+
+rule "Do you like mayonnaise? - No - Do you need to get 'regular'?"
+    when
+    Question_and_answer(question == "Do you like mayonnaise?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you need to get 'regular'?", options);
+    insert (answer);
+end
+
+rule "Do you need to get 'regular'? - Yes - Raisins."
+    when
+    Question_and_answer(question == "Do you need to get 'regular'?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Raisins.");
+end
+
+
+rule "Do you need to get 'regular'? - No - Are you in Hawaii?"
+    when
+    Question_and_answer(question == "Do you need to get 'regular'?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you in Hawaii?", options);
+    insert (answer);
+end
+
+rule "Are you in Hawaii? - Yes - Coconut, yam."
+    when
+    Question_and_answer(question == "Are you in Hawaii?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Coconut, yam.");
+end
+
+
+rule "Are you in Hawaii? - No - Are you a Simpson?"
+    when
+    Question_and_answer(question == "Are you in Hawaii?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you a Simpson?", options);
+    insert (answer);
+end
+
+rule "Are you a Simpson? - Yes - Pink pulp."
+    when
+    Question_and_answer(question == "Are you a Simpson?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Pink pulp.");
+end
+
+
+rule "Are you a Simpson? - No - Are you trying to lose a 'couple' dress sizes?"
+    when
+    Question_and_answer(question == "Are you a Simpson?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you trying to lose a 'couple' dress sizes?", options);
+    insert (answer);
+end
+
+rule "Are you trying to lose a 'couple' dress sizes? - Yes - Grapefruit, celery, jicama."
+    when
+    Question_and_answer(question == "Are you trying to lose a 'couple' dress sizes?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Grapefruit, celery, jicama.");
+end
+
+
+rule "Are you trying to lose a 'couple' dress sizes? - No - Is your mom cooking?"
+    when
+    Question_and_answer(question == "Are you trying to lose a 'couple' dress sizes?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is your mom cooking?", options);
+    insert (answer);
+end
+
+rule "Is your mom cooking? - Yes - Is she trying to look like the 'good' mom?"
+    when
+    Question_and_answer(question == "Is your mom cooking?" && answer == "Yes")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Is she trying to look like the 'good' mom?", options);
+    insert (answer);
+end
+
+rule "Is she trying to look like the 'good' mom? - Yes - Brussels sprouts, broccoli."
+    when
+    Question_and_answer(question == "Is she trying to look like the 'good' mom?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Brussels sprouts, broccoli.");
+end
+
+
+rule "Is she trying to look like the 'good' mom? - No - Green bean, potato."
+    when
+    Question_and_answer(question == "Is she trying to look like the 'good' mom?" && answer == "No")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Green bean, potato.");
+end
+
+
+rule "Is your mom cooking? - No - Are you making a smoothie?"
+    when
+    Question_and_answer(question == "Is your mom cooking?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you making a smoothie?", options);
+    insert (answer);
+end
+
+rule "Are you making a smoothie? - Yes - Raspberry, kiwi, blueberry, blackberry."
+    when
+    Question_and_answer(question == "Are you making a smoothie?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Raspberry, kiwi, blueberry, blackberry.");
+end
+
+
+rule "Are you making a smoothie? - No - Do you own a juicer?"
+    when
+    Question_and_answer(question == "Are you making a smoothie?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you own a juicer?", options);
+    insert (answer);
+end
+
+rule "Do you own a juicer? - Yes - Papaya, orange, guava, pineapple."
+    when
+    Question_and_answer(question == "Do you own a juicer?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Papaya, orange, guava, pineapple.");
+end
+
+
+rule "Do you own a juicer? - No - Do you believe the hype?"
+    when
+    Question_and_answer(question == "Do you own a juicer?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you believe the hype?", options);
+    insert (answer);
+end
+
+rule "Do you believe the hype? - Yes - Blackcurrant, pomegranate."
+    when
+    Question_and_answer(question == "Do you believe the hype?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Blackcurrant, pomegranate.");
+end
+
+
+rule "Do you believe the hype? - No - Are you near the end of your life?"
+    when
+    Question_and_answer(question == "Do you believe the hype?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you near the end of your life?", options);
+    insert (answer);
+end
+
+rule "Are you near the end of your life? - Yes - Extra life."
+    when
+    Question_and_answer(question == "Are you near the end of your life?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Extra life.");
+end
+
+
+rule "Are you near the end of your life? - No - Do you watch the Food Network?"
+    when
+    Question_and_answer(question == "Are you near the end of your life?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you watch the Food Network?", options);
+    insert (answer);
+end
+
+rule "Do you watch the Food Network? - Yes - Onion, garlic, chive, armillaria."
+    when
+    Question_and_answer(question == "Do you watch the Food Network?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Onion, garlic, chive, armillaria.");
+end
+
+
+rule "Do you watch the Food Network? - No - Do you need a quick snack?"
+    when
+    Question_and_answer(question == "Do you watch the Food Network?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you need a quick snack?", options);
+    insert (answer);
+end
+
+rule "Do you need a quick snack? - Yes - Banana, plum, mirabelle plum, mandarin, pear, peach."
+    when
+    Question_and_answer(question == "Do you need a quick snack?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Banana, plum, mirabelle plum, mandarin, pear, peach.");
+end
+
+
+rule "Do you need a quick snack? - No - Are you with a date?"
+    when
+    Question_and_answer(question == "Do you need a quick snack?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you with a date?", options);
+    insert (answer);
+end
+
+rule "Are you with a date? - Yes - Strawberry, mango, grapes, cherries."
+    when
+    Question_and_answer(question == "Are you with a date?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Strawberry, mango, grapes, cherries.");
+end
+
+
+rule "Are you with a date? - No - Do you know what these are (rhubarb, celery)?"
+    when
+    Question_and_answer(question == "Are you with a date?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you know what these are (rhubarb, celery)?", options);
+    insert (answer);
+end
+
+rule "Do you know what these are (rhubarb, celery)? - Yes - Rhubarb, celery."
+    when
+    Question_and_answer(question == "Do you know what these are (rhubarb, celery)?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Rhubarb, celery.");
+end
+
+
+rule "Do you know what these are (rhubarb, celery)? - No - Do you want the best fruit in the World?"
+    when
+    Question_and_answer(question == "Do you know what these are (rhubarb, celery)?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you want the best fruit in the World?", options);
+    insert (answer);
+end
+
+rule "Do you want the best fruit in the World? - Yes - Fig."
+    when
+    Question_and_answer(question == "Do you want the best fruit in the World?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Fig.");
+end
+
+
+rule "Do you want the best fruit in the World? - No - Do you want the best vegetable in the World?"
+    when
+    Question_and_answer(question == "Do you want the best fruit in the World?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Do you want the best vegetable in the World?", options);
+    insert (answer);
+end
+
+rule "Do you want the best vegetable in the World? - Yes - Corn."
+    when
+    Question_and_answer(question == "Do you want the best vegetable in the World?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Corn.");
+end
+
+
+rule "Do you want the best vegetable in the World? - No - Are you a entrepreneuring youth?"
+    when
+    Question_and_answer(question == "Do you want the best vegetable in the World?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you a entrepreneuring youth?", options);
+    insert (answer);
+end
+
+rule "Are you a entrepreneuring youth? - Yes - Lemon."
+    when
+    Question_and_answer(question == "Are you a entrepreneuring youth?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Lemon.");
+end
+
+
+rule "Are you a entrepreneuring youth? - No - Are you making pasta sauce?"
+    when
+    Question_and_answer(question == "Are you a entrepreneuring youth?" && answer == "No")
+    then
+    ArrayList<String> options = new ArrayList<>();
+    options.add("Yes");
+    options.add("No");
+    Question_and_answer answer = ask_question(frame, kcontext.getKieRuntime(), "Are you making pasta sauce?", options);
+    insert (answer);
+end
+
+rule "Are you making pasta sauce? - Yes - Basil, tomato, champignon mushroom."
+    when
+    Question_and_answer(question == "Are you making pasta sauce?" && answer == "Yes")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Basil, tomato, champignon mushroom.");
+end
+
+
+rule "Are you making pasta sauce? - No - Green peas, cucumber, iceberg lettuce, courgette."
+    when
+    Question_and_answer(question == "Are you making pasta sauce?" && answer == "No")
+    then
+    recommend(frame, kcontext.getKieRuntime(), "Green peas, cucumber, iceberg lettuce, courgette.");
+end
+
+function void recommend(JFrame frame, KieRuntime krt, String recommendation) {
+	
+	JPanel panel = new JPanel();
+	JLabel label = new JLabel();
+	ImageIcon turnip_image = new ImageIcon(recommendation + "png");
+	
+	label.setText("Your recommendations are: " + recommendation.toLowerCase());
+	label.setIcon(turnip_image);
+	label.setHorizontalTextPosition(JLabel.CENTER);
+	label.setVerticalTextPosition(JLabel.TOP);
+	label.setHorizontalAlignment(JLabel.CENTER);
+	label.setVerticalAlignment(JLabel.CENTER);
+	
+	panel.add(label);
+	JOptionPane.showMessageDialog(frame, panel, "Result", JOptionPane.PLAIN_MESSAGE);
+}
+
+function Question_and_answer ask_question(JFrame frame, KieRuntime krt, String the_question, ArrayList answers) {
+
+    class Listener implements ItemListener {
+        private Question_and_answer answer;
+        private String chosen;
+        public Listener(Question_and_answer ans, String chosen) {
+            this.answer = ans;
+            this.chosen = chosen;
+        }
+
+        @Override
+        public void itemStateChanged(ItemEvent event) {
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+                answer.setAnswer(chosen);
+            }
+        }
+    }
+    Question_and_answer answer = new Question_and_answer(the_question, (String) answers.get(0));
+
+    final JPanel panel = new JPanel(new GridLayout(0, 1));
+    panel.add(new JLabel(the_question));
+
+    ArrayList <JRadioButton> button_list = new ArrayList < > ();
+
+    for (int i = 0; i < answers.size(); i++) {
+        String text = (String) answers.get(i);
+        JRadioButton new_button = new JRadioButton(text);
+        Listener new_listener = new Listener(answer, text);
+        new_button.addItemListener(new_listener);
+        button_list.add(new_button);
+    }
+
+    button_list.get(0).setSelected(true);
+    answer.setAnswer((String) answers.get(0));
+
+    ButtonGroup group = new ButtonGroup();
+    for (int i = 0; i < button_list.size(); i++) {
+        group.add(button_list.get(i));
+        panel.add(button_list.get(i));
+    }
+    Object[] options = {
+        "Proceed"
+    };
+    if (JOptionPane.showConfirmDialog(frame, panel, "Question", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE) < 0) {
+        answer.setAnswer("End the program.");
+    }
+
+    return answer;
+}
+
+
+declare Question_and_answer
+	question : String
+	answer : String
+end
