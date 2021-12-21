@@ -1,2 +1,4 @@
 # DROOLS: Projekt systemu regułowego
-Kacper Matecki 145430
+## Temat: what sould i eat - vege edition
+ - Kacper Matecki 145430
+ - Krzysztof Krzyżaniak 145334
